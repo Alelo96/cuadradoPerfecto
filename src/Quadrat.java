@@ -1,17 +1,15 @@
 import java.util.Scanner;
 
 public class Quadrat {
-    //Multiplicar fins que l'arrel quadrada del resultat multiplicat no dongui decimal
-
-    //Multiplicar fins que l'arrel quadrada del resultat multiplicat no dongui decimal
-    static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in); //Scanner
 
     public static void main(String[] args) {
-        // obrim el objecte scanner pero poder utilitzarlo amb el nom sc
-        //variable num
-        int num =0;
-        int quant = 0;
-        boolean correct = false;
+        int num =0; //Número triat per l'usuari
+        int quant = 0; //Quantitat de números a calcular
+        boolean correct = false; //Boolean de comprovació
+        int x = 0; //Variable per controlar la quantitat de números a calcular
+
+        //Bucle i control d'entrada de la quantiat d'entrades de l'usuari
         do{
             try {
                 System.out.print("Introdueix la quantitat de casos a analitzar: ");
@@ -25,17 +23,13 @@ public class Quadrat {
             }
         }while(!correct);
 
-
-        int x = 0;
-        // bucle per tal de que fer el try catch repetir si peta.
-        // Fem un try catch, per donar missatge de error en cas de que no es fiqui les dades demanades.
-
+        //Fem un try catch i controlem els possibles errors provocats per les entrades de l'usuari
         do{
             try{
                 System.out.print("Introdueix el número a calcular: ");
                 num=sc.nextInt();
                 while(num<1 && num>Math.pow(num, 31)){
-                    System.out.println("Introdueix un número més petit.");
+                    System.out.println("Introdueix un número correcte.");
                     num=sc.nextInt();
                 }
                 int result = getPerfectSquare(num);
@@ -52,8 +46,6 @@ public class Quadrat {
             }
         } while(x < quant);
 
-//        System.out.println(Math.pow(num, 2));
-
 
 
     }
@@ -64,9 +56,11 @@ public class Quadrat {
      * @return int - numero perfecte sense decimals
      */
     public static int getPerfectSquare(int num){
-        for(int i = 1; i < 2; i++){
+        for(int i = 1; i < 2000000000; i++){
             int resultat = num * i;
             double decimal = Math.sqrt(resultat);
+            System.out.println(resultat + " resultat");
+            System.out.println(decimal + " decimal");
 
             if (decimal%1 == 0) return i;;
         }
